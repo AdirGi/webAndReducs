@@ -1,8 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFlightArr1, getFlightAsync } from '../features/flight/flightSlice';
+import { selectFlightArr1, getFlightAsync, deleteFlightAsync } from '../features/flight/flightSlice';
 
+
+import Card from 'react-bootstrap/Card';
 
 
 const CardFlight = (props) => {
@@ -14,22 +16,25 @@ const CardFlight = (props) => {
     }, [])
     // ----------------------------------------------------------------------------------------------------------
     return (
-        <div>CardFlight
 
-            <h1>flightArr1-length: {flightArr1.length}</h1>
+        <Card>
+            <Card.Img variant="top" src="https://picsum.photos/200/300" />
+            <Card.Body>
+                <Card.Title>flight to: {props.FlightCardProps.destination_country_id.country_name}</Card.Title>
+                <Card.Text>
+                    companyName: {props.FlightCardProps.airline_company_id.company_name}<br></br>
+                    origin_country_id: {props.FlightCardProps.origin_country_id.country_name}<br></br>
+                    destination_country_id: {props.FlightCardProps.destination_country_id.country_name}<br></br>
+                    landing_time: {props.FlightCardProps.landing_time}<br></br>
+                    remaining_tickets: {props.FlightCardProps.remaining_tickets}<br></br>
+                    createdTime: {props.FlightCardProps.createdTime}<br></br>
+                </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+                <small className="text-muted">id: {props.FlightCardProps.id}</small>
+            </Card.Footer>
+        </Card>
 
-            <div className="card-group">
-                
-                        <div className="card">
-                            <img className="card-img-top" src="https://picsum.photos/300/200" alt="https://picsum.photos/300/200" />
-                            <div className="card-body">
-                                <h5 className="card-title">Flight to: {props.destination}</h5>
-                                <p className="card-text">companyName: {props.companyName}</p>
-                                <p className="card-text"><small className="text-muted">id: {props.id}</small></p>
-                            </div>
-                        </div>
-            </div>
-        </div>
     )
 }
 

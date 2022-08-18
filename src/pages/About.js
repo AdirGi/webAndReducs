@@ -4,7 +4,7 @@ import CardFlight from '../components/CardFlight'
 const About = () => {
   return (
     <div>About
-      <CardFlight></CardFlight>
+
     </div>
   )
 }

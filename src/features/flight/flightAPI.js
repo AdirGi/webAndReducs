@@ -1,13 +1,16 @@
 
 // here we build the CRUD:
 import axios from "axios"
-const MY_SERVER_FLIGHTS = 'http://localhost:3005/flights/'
+const MY_SERVER_FLIGHTS = 'http://127.0.0.1:8000/flights/'
+
 // ------------------------------- - get - ------------------------------------------
 // A mock function to mimic making an async request for data
 export function getFlight() {
   return new Promise((resolve) =>
     // setTimeout(() => resolve({ data: amount }), 1500)
-    axios(MY_SERVER_FLIGHTS).then((res) => resolve({ data: res.data }))
+    axios(MY_SERVER_FLIGHTS).then((res) => { 
+      console.log(res.data)
+      resolve({ data: res.data })})
   );
 }
 // ------------------------------- - post - ------------------------------------------
@@ -28,5 +31,6 @@ export function updateFlight(newBody, id) {
 export function deleteFlight(id) {
   return new Promise((resolve) =>
     axios.delete(MY_SERVER_FLIGHTS + id).then((res) => resolve({ data: res.data }))
+    
   );
 }

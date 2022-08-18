@@ -4,10 +4,12 @@ import FlightsPage from './pages/FlightsPage';
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
-import Nav from "./components/Nav";
+// import Nav1 from "./components/Nav";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import BuyTickets from "./pages/BuyTickets";
+import NavMui from './components/NavMui';
+import Nav1 from './components/Nav';
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
     <div>
       <div className="App">
         <header className="App-header">
-          <Nav />
+          <Nav1></Nav1>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
